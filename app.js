@@ -70,7 +70,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions)
     .then((res) => {
-      writeToFile('README.md', res)
+      writeToFile('./results/README.md', res)
     })
     .catch((err) => {
       console.error(err)
