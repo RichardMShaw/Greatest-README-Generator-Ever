@@ -24,7 +24,7 @@ const licenses = {
 }
 
 const getLicense = (license) => {
-  if (licesne === 'The MIT License') {
+  if (license === 'The MIT License') {
     return licenses.mit
   } else if (license === 'Apache 2.0 License') {
     return licenses.apache
@@ -37,7 +37,7 @@ const getLicense = (license) => {
   }
 }
 
-const writeLicenseFile = (license) => {
+const writeLicenseFile = (data) => {
   let license = getLicense(data.license)
   fs.readFile(license.file, (err, data) => {
     if (err) {
@@ -45,7 +45,7 @@ const writeLicenseFile = (license) => {
     } else {
       fs.writeFile('./results/LICENSE.txt', data)
     }
-  }
+  })
 }
 
 module.exports = { getLicense, writeLicenseFile }
