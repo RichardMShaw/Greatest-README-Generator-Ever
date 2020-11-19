@@ -1,6 +1,7 @@
 const fs = require('fs')
 const inquirer = require("inquirer")
 const markdown = require("./utils/generateMarkdown.js")
+const gl = require('./utils/generateLicense.js')
 
 // array of questions for user
 const questions = [
@@ -11,12 +12,12 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'desc',
+    name: 'description',
     message: 'Please enter a description: '
   },
   {
     type: 'input',
-    name: 'install',
+    name: 'installation',
     message: 'How does someone install your app: '
   },
   {
@@ -26,19 +27,24 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'contribute',
+    name: 'contributing',
     message: 'What are the contribution guideline regarding this app: '
   },
   {
     type: 'input',
-    name: 'test',
+    name: 'tests',
     message: 'Please give simple code examples as to how to run the app: '
   },
   {
     type: 'list',
     name: 'license',
     message: 'Select one of these licenses for your app: ',
-    choices: ["MIT", "MPL", "GPL", "Apache", "Boost"]
+    choices: ['The MIT License', 'Apache 2.0 License', 'Boost Software License 1.0', 'GNU GPL v3', 'Mozilla Public License 2.0']
+  },
+  {
+    type: 'input',
+    name: 'questions',
+    message: 'Please enter instructions on how to reach you with additional questions: '
   },
   {
     type: 'input',
@@ -55,14 +61,16 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, err => console.log(err))
+  gl.writeLicenseFile(data.license)
+  let readme = markdown(data)
+  fs.writeFile(fileName, readme, err => console.log(err))
 }
 
 // function to initialize program
 function init() {
   inquirer.prompt(questions)
     .then((res) => {
-      console.log(res)
+      writeToFile('README.md', res)
     })
     .catch((err) => {
       console.error(err)
