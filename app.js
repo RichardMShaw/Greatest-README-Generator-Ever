@@ -63,7 +63,7 @@ const questions = [
 function writeToFile(fileName, data) {
   gl.writeLicenseFile(data.license)
   let readme = markdown(data)
-  fs.writeFile(fileName, readme, err => console.log(err))
+  fs.writeFile(fileName, readme, (err) => { if (err) { console.log(err) } })
 }
 
 // function to initialize program
