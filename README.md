@@ -14,6 +14,7 @@ An app that produces a professional README.md file for any project.
 You'll first need to download [Node.js](https://nodejs.org/en/) then download the Inquirer.js by opening the Command Prompt in the root of the app's folder and enter the following command: ```npm i inquirer```
 ## Usage
 To use the app, simple run it by opening the Command Prompt in the app's root folder and enter the following command: ```npm app.js```
+
 [Here is a video with the app in use.](https://drive.google.com/file/d/1DOCwOeNQTuqdaxQvPEU2BYRisob6A3Nu/view)
 
 Afterwards, your new README.md and LICENSE.txt should appear in the results folder.
