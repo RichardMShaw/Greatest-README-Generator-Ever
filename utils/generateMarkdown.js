@@ -40,7 +40,9 @@ ${data.contributing}
 ${data.tests}
 ## Questions
 ${data.questions}
+
 Github Profile: https://github.com/${data.username}
+
 Email: ${data.email}
 `
   return readme
