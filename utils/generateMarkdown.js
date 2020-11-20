@@ -33,14 +33,14 @@ function generateMarkdown(data) {
     ## Usage
     ${data.usage}
     ## License
-    ${licesne.badge}
+    ${license.badge}
     ## Contributing
     ${data.contributing}
     ## Tests
     ${data.tests}
     ## Questions
     ${data.questions}
-    Github Profile: ${data.username}
+    Github Profile: https://github.com/${data.username}
     Email: ${data.email}
   `
   readme.replace('  ', '')

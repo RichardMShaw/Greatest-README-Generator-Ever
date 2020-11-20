@@ -38,12 +38,12 @@ const getLicense = (license) => {
 }
 
 const writeLicenseFile = (data) => {
-  let license = getLicense(data.license)
+  let license = getLicense(data)
   fs.readFile(license.file, (err, data) => {
     if (err) {
       console.log(err)
     } else {
-      fs.writeFile('./results/LICENSE.txt', data)
+      fs.writeFile('./results/LICENSE.txt', data, (err) => { if (err) { console.log(err) } })
     }
   })
 }
