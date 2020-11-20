@@ -43,7 +43,7 @@ function generateMarkdown(data) {
     Github Profile: https://github.com/${data.username}
     Email: ${data.email}
   `
-  readme.replace('  ', '')
+  readme = readme.replace('  ', '')
   return readme
 }
 
